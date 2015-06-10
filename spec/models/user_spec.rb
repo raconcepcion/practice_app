@@ -14,10 +14,10 @@ describe User do
 
     it 'validates the uniqueness of email' do
       user1.save
-      user2 = User.new(first_name:"Sam", last_name:"Cruz", email:"roan@proudcloud.net")
-      expect(user2.valid?).to eq false
+      user2 = User.new(first_name: nil, last_name:"Cruz", email:"roan@proudcloud.net")
+      user2.save
 
-      #expect(user2.errors[:email]).to include "has already been taken" 
+      expect(user2.errors[:email]).to include "has already been taken"
     end
   end
   
