@@ -1,4 +1,4 @@
-%h1 Hello Posts
+%h1 My Posts
 %br
 %table
   %thead
@@ -7,7 +7,7 @@
   %tbody
     - @posts.each do |post|
       %tr
-        %td= post.title
+        %td= link_to "#{post.title}", post_path(post)
         %td= post.body
         %td= link_to "Edit", edit_post_path(post)
         %td= link_to "Delete", post_path(post), method: :delete

@@ -1,0 +1,16 @@
+%h1= @post.title
+%p= @post.body
+
+-@post.comments.each do |comment|
+  %p= comment.body
+  .actions
+    -#= link_to 'Edit', edit_post_comment_path[@post, comment]
+    = link_to 'Delete', [@post, comment], method: :delete
+
+= form_for [@post,@comment] do |f|
+  = f.label :body
+  = f.text_area :body
+  = f.submit "Save"
+
+= link_to "Back", posts_path
+
